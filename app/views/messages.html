@@ -1,0 +1,22 @@
+{% for msg in session['messages'] %}
+  <div class="msg">
+    <div class="msg-head">
+      <span>{{ msg['name'] }}</span>
+      <span>{{ msg['created_at'] }}</span>
+    </div>
+    <div class="msg-body">
+      <textarea readonly>{{ msg['msg_text'] }}</textarea>
+      <button type="button" id="{{ msg['id'] }}">Comments</button>
+    </div>
+    <div class="cmt" id="cmt{{ msg['id'] }}">
+      <div class="posted_c" id="cblock{{ msg['id'] }}">
+        <!-- contents of comments.html will go here -->
+      </div>
+      <form class="post_cmt" id="{{ msg['id'] }}">
+        <h4>Leave a comment</h4>
+        <textarea name="comment"></textarea>
+        <input type="submit" value="Post">
+      </form>
+    </div>
+  </div>
+{% endfor %}

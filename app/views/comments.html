@@ -1,0 +1,7 @@
+{% for cmt in session['comments'] %}
+  <div class="comments">
+    <span>{{ cmt['name'] }}</span>
+    <span>{{ cmt['created_at'] }}</span>
+  </div>
+  <textarea readonly>{{ cmt['cmt_text'] }}</textarea>
+{% endfor %}

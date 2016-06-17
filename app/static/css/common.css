@@ -1,0 +1,47 @@
+html{
+  font-family: 'Comfortaa', sans-serif;
+  font-size: 18px;
+}
+
+body{
+  color: ivory;
+  overflow: hidden;
+  background-color: black;
+}
+
+/*Header section*/
+header{
+  position: fixed;
+  width: 100vw;
+  height: 6vh;
+  background-color: rgb(27, 168, 117);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+  header>*{
+    margin: auto 1vw;
+  }
+  header>h1{
+    line-height: 6vh;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    background-color: ivory;
+    color: rgb(27, 168, 117);
+  }
+  header>div{
+    width: 60%;
+    display: flex;
+  }
+    header>div>h3:last-of-type{
+      margin: auto 0 auto auto;
+    }
+  header h3{
+    padding: 0 1vw;
+    border-bottom: 1px solid ivory;
+  }
+  header a{
+    text-decoration: none;
+    color: ivory;
+  }
+/*end of header*/

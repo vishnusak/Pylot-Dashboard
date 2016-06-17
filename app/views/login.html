@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard | Login</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+    <!-- <link rel="stylesheet" href="..\static\css\common.css"> -->
+    <!-- <link rel="stylesheet" href="..\static\css\login.css"> -->
+  </head>
+  <body>
+    <header>
+      <h1>MyDashboard</h1>
+      <h3><a href="/">Home</a></h3>
+      <div>
+        {% if session['user'] %}
+        <h3><a href="/users/edit/{{ session['user-id'] }}">Profile</a></h3>
+        <h3><a href="/logoff"></as>Log off</a></h3>
+        {% else %}
+        <h3><a href="/login">Sign In</a></h3>
+        {% endif %}
+      </div>
+    </header>
+    <main>
+      <div class="top">
+        <form class="login" action="/login" method="post">
+          <h1>Sign In</h1>
+          <div>
+            <label>Email Address:</label>
+            {% if session['err']['email'] %}
+            <span class="err">{{ session['err']['email'] }}</span>
+            {% endif %}
+          </div>
+          {% if not session['err']['email'] %}
+            <input type="text" name="email" value="{{ session['form']['email'] }}">
+          {% else %}
+            <input type="text" name="email">
+          {% endif %}
+          <div>
+            <label>Password:</label>
+            {% if session['err']['pwd'] %}
+            <span class="err">{{ session['err']['pwd'] }}</span>
+            {% endif %}
+          </div>
+          <input type="password" name="password">
+          <input type="submit" value="Sign In">
+        </form>
+        <h3><a href="/register">Don't have an account? Click here to Register</a></h3>
+      </div>
+    </main>
+  </body>
+</html>

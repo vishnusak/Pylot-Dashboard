@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard | Home</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <!-- <link rel="stylesheet" href="..\static\css\common.css"> -->
+    <!-- <link rel="stylesheet" href="..\static\css\index.css"> -->
+  </head>
+  <body>
+    <header>
+      <h1>MyDashboard</h1>
+      <h3><a href="/">Home</a></h3>
+      <div>
+        {% if session['user'] %}
+        <h3><a href="/users/edit/{{ session['user-id'] }}">Profile</a></h3>
+        <h3><a href="/logoff"></as>Log off</a></h3>
+        {% else %}
+        <h3><a href="/login">Sign In</a></h3>
+        {% endif %}
+      </div>
+    </header>
+    <main>
+      <div class="top">
+        <h2>Welcome to MyDashboard</h2>
+        <p>MyDashboard - a place to connect with friends via messages and comments. Login now if you haven't already and start connecting</p>
+        <em>{ The application is built using pylotMVC (MVC framework on top of Flask) and is hosted on AWS }</em>
+        <h3><a href="/login">Start</a></h3>
+      </div>
+      <div class="bottom">
+        <div class="feature">
+          <h3>Manage Users</h3>
+          <p>
+            Admin users can add, remove, and edit user information
+          </p>
+        </div>
+        <div class="feature">
+          <h3>Edit User Info</h3>
+          <p>
+            Users can change information like email id, user name, descriptiton and password from within the application.
+          </p>
+        </div>
+        <div class="feature">
+          <h3>Message Board</h3>
+          <p>
+            Click on any user in the list to go to the message board for that user. Send messages and comments via the message board
+          </p>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

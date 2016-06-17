@@ -1,0 +1,100 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/*main section*/
+main{
+  background-image: url('stripe.png');
+  position: absolute;
+  top: 6vh;
+  width: 100%;
+  height: 93.5vh;
+  overflow: auto;
+}
+
+.top{
+  width: 90%;
+  margin: 3vh auto;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(27, 168, 117);
+  background-color: rgba(27, 168, 117, 0.6);
+}
+  .top h3{
+    margin: 2vh 1.5vw;
+  }
+  .top a{
+    text-decoration: none;
+    color: rgb(27, 168, 117);
+    background-color: ivory;
+    padding: 0.5vh 0.5vw;
+  }
+
+.bottom{
+  width: 90%;
+  margin: auto;
+  padding: 1vh 1vw;
+  background-color: rgb(27, 168, 117);
+  background-color: rgba(27, 168, 117, 0.6);
+}
+  .bottom table{
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    border-collapse: collapse;
+    background-color: rgb(8,7,7);
+  }
+    .bottom table th, .bottom table td{
+      border: 1px solid ivory;
+      padding: 1vh 1vw;
+    }
+    .bottom table th{
+      background-color: ivory;
+      color: rgb(27, 168, 117);
+    }
+    .bottom table td{
+      color: rgb(27, 168, 117);
+    }
+    .bottom table a{
+      font-style: italic;
+      color: rgb(27, 168, 117);
+      color: ivory;
+    }
+  .bottom h3{
+    text-align: center;
+  }
+
+.msg{
+  width: 40vw;
+  margin: auto;
+  border: 5px solid rgb(8,7,7);
+  background-color: rgb(8,7,7);
+  background-color: rgba(8, 7, 7, 0.85);
+  position: absolute;
+  left: 30vw;
+  top: 30vh;
+  color: ivory;
+}
+  .msg h3{
+    text-align: center;
+    margin: 3vh 1vw;
+  }
+  .msg div{
+    display: flex;
+    justify-content: space-around;
+    margin: 4vh 1vw;
+  }
+    .msg a{
+      text-align: center;
+      text-decoration: none;
+      color: rgb(8,7,7);
+      font-weight: bold;
+      width: 49%;
+      padding: 1vh 2vw;
+      border: 1px solid rgb(27, 168, 117);
+      background-color: rgb(27, 168, 117);
+      background-color: rgba(27, 168, 117, 0.85);
+    }
+/*end of main*/

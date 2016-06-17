@@ -1,0 +1,51 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/*main section*/
+main{
+  background-image: url('stripe.png');
+  position: absolute;
+  top: 6vh;
+  width: 100%;
+  height: 93.5vh;
+  overflow: auto;
+}
+
+.top{
+  width: 75%;
+  margin: 3vh auto;
+  padding: 1vh 1vw;
+  text-align: justify;
+  background-color: rgb(27, 168, 117);
+  background-color: rgba(27, 168, 117, 0.6);
+}
+  .top *{
+    margin: 2vh auto;
+  }
+  .top a{
+    text-decoration: none;
+    color: rgb(27, 168, 117);
+    background-color: ivory;
+    padding: 0.5vh 0.5vw;
+  }
+
+.bottom{
+  width: 75%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
+  .feature{
+    background-color: rgb(27, 168, 117);
+    background-color: rgba(27, 168, 117, 0.6);
+    padding: 1vh 1vw;
+    width: 30%;
+    text-align: justify;
+  }
+    .feature *{
+      margin: 2vh auto;
+    }
+/*end of main*/

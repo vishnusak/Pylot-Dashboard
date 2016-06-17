@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MyDashboard | Messageboard</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/message.js') }}"></script>
+    <!-- <script type="text/javascript" src="..\static\js\message.js"></script> -->
+
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/message.css') }}">
+    <!-- <link rel="stylesheet" href="..\static\css\common.css"> -->
+    <!-- <link rel="stylesheet" href="..\static\css\message.css"> -->
+  </head>
+  <body>
+    <header>
+      <h1>MyDashboard</h1>
+      <h3><a href="/">Home</a></h3>
+      <div>
+        {% if session['user'] %}
+        <h3><a href="/users/edit/{{ session['user-id'] }}">Profile</a></h3>
+        <h3><a href="/logoff"></as>Log off</a></h3>
+        {% else %}
+        <h3><a href="/login">Sign In</a></h3>
+        {% endif %}
+      </div>
+    </header>
+    <main>
+      <div class="top">
+        <div class="up">
+          <h2>{{ session['mb']['name'] }}</h2>
+          <div>
+            <label><p>Registered At : </p><span>{{ session['mb']['date'] }}</span></label>
+            <label><p>User ID : </p><span>#{{ session['mb']['id'] }}</span></label>
+            <label><p>Email Address : </p><span>{{ session['mb']['email'] }}</span></label>
+            <label><p>Description : </p><span>{{ session['mb']['desc'] }}</span></label>
+          </div>
+        </div>
+        <form class="post_msg" id="{{ session['mb']['id'] }}">
+          <h3>Leave a message for {{ session['mb']['name'] }}</h3>
+          <textarea name="message"></textarea>
+          <input type="submit" value="Post">
+        </form>
+      </div>
+      <div class="bottom">
+        <!-- Contents of messages.html will go here -->
+        {% for msg in session['messages'] %}
+          <div class="msg">
+            <div class="msg-head">
+              <span>{{ msg['name'] }}</span>
+              <span>{{ msg['created_at'] }}</span>
+            </div>
+            <div class="msg-body">
+              <textarea readonly>{{ msg['msg_text'] }}</textarea>
+              <button type="button" id="{{ msg['id'] }}">Comments</button>
+            </div>
+            <div class="cmt" id="cmt{{ msg['id'] }}">
+              <div class="posted_c" id="cblock{{ msg['id'] }}">
+                <!-- contents of comments.html will go here -->
+              </div>
+              <form class="post_cmt" id="{{ msg['id'] }}">
+                <h4>Leave a comment</h4>
+                <textarea name="comment"></textarea>
+                <input type="submit" value="Post">
+              </form>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </main>
+  </body>
+</html>
